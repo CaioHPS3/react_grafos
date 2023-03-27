@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
-    <p>Hello World</p>
-    <p className='color--pink'>Hello World</p>
-    
-  </>
-)
+import Root from './componets/Root'
+
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+
+root.render(<Root />);
