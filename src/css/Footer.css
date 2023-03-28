@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Gafata&family=Sofia+Sans+Semi+Condensed&display=swap');
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: 0;
+  justify-content: space-between;
+  font-family: 'Gafata', sans-serif;
+}
+
+.footer__logo-copyright {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.footer__image-logo {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.footer__logo-copyright img {
+  height: 100%;
+  width: 36px;
+}
+
+.footer__logo {
+  font-size: 24px;
+}
+
+.footer__copyright-notice {
+  padding-bottom: 30px;
+}
+
+.footer--links {
+  color: gray;
+  text-decoration: none;
+}
+
+.footer--links:visited {
+  color: gray;
+  text-decoration: none;
+}
+
+.footer--links:hover {
+  color: gray;
+  text-decoration: underline;
+}

@@ -2,9 +2,9 @@
 
 .header {
   align-items: center;
-  background: #24292f;
+  background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
   display: flex;
-  color: white;
+  color: #000;
   padding: 20px;
   gap: 30px;
   font-family: 'Gafata', sans-serif;
@@ -12,17 +12,17 @@
 }
 
 .header--links {
-  color: white;
+  color: #000;
   text-decoration: none;
 }
 
 .header--links:visited {
-  color: white;
+  color: #000;
   text-decoration: none;
 }
 
 .header--links:hover {
-  color: white;
+  color: #000;
   text-decoration: underline;
 }
 
