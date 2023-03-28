@@ -45,7 +45,7 @@ const Login = () => {
             }}
             variant="outlined"
           >
-            SUBMIT
+            Entrar
           </Button>
         </div>
       </Container>
