@@ -1,60 +1,53 @@
 import Header from "../layout/Header";
 import Container from "../layout/Container";
 import "../css/Login.css";
-import * as scripts from '../componets/scripts.jsx'
+import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
+import { useState } from "react";
 
 const Login = () => {
+  const [userCreated, setCreation] = useState(false);
+  const [nameUseState, setNameUseState] = useState("");
+  const [emailUseState, setEmailUseState] = useState("");
+  const [passwordUseState, setPasswordUseState] = useState("");
+
   return (
     <>
       <Header />
-
       <Container>
+        <h1>LOGIN</h1>
+        <div className="signup-forms">
+          <TextField
+            type="text"
+            id="outlined-basic"
+            label="Nome de Usuario ..."
+            variant="outlined"
+            defaultValue={nameUseState}
+            onChange={(e) => {
+              setNameUseState(e.target.value);
+            }}
+          />
 
-        <div className="geral">
-          
-          <div className="containeer">
+          <TextField
+            type="password"
+            id="outlined-basic"
+            label="Digite sua senha ..."
+            variant="outlined"
+            defaultValue={passwordUseState}
+            onChange={(e) => {
+              setPasswordUseState(e.target.value);
+            }}
+          />
 
-            <div className="cabeçario">
-              <h2>Fazer Login</h2>
-            </div>
-
-            <form id="form" className="form" action="file:///home/caiohps/eng-projeto/react_grafos/src/pages/teste..txt " method="POST">
-              <div className="form-control">
-                <label for="username">Nome de usuário</label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Digite seu nome de usuário..."
-                />
-                <i className="fas fa-exclamation-circle"></i>
-                <i className="fas fa-check-circle"></i>
-                <small>Mensagem de erro</small>
-              </div>
-
-              <div className="form-control">
-                <label for="password">Senha</label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Digite sua senha..."
-                />
-                <i className="fas fa-exclamation-circle"></i>
-                <i className="fas fa-check-circle"></i>
-                <small>Mensagem de erro</small>
-              </div>
-
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
-
-          <script
-            src="https://kit.fontawesome.com/f9e19193d6.js"
-            crossorigin="anonymous"
-          ></script>
-
-          <script src="./scripts.js"></script>
+          <Button
+            onClick={() => {
+              setCreation(true);
+            }}
+            variant="outlined"
+          >
+            SUBMIT
+          </Button>
         </div>
-
       </Container>
     </>
   );

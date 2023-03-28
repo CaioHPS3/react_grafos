@@ -1,55 +1,73 @@
 import Header from "../layout/Header";
 import Container from "../layout/Container";
+import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
+import { useState } from "react";
 import "../css/Signup.css";
 
 const Signup = () => {
+  const [userCreated, setCreation] = useState(false);
+  const [nameUseState, setNameUseState] = useState("");
+  const [emailUseState, setEmailUseState] = useState("");
+  const [passwordUseState, setPasswordUseState] = useState("");
+
+  let userInfo;
+
+  if (userCreated === true) {
+    userInfo = (
+      <>
+        <h6>User created</h6>
+        <p>Name: {nameUseState}</p>
+        <p>E-mail: {emailUseState}</p>
+        <p>Password: {passwordUseState}</p>
+      </>
+    );
+  } else {
+    userInfo = (
+      <>
+        <p>User not created</p>
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
       <Container>
-      <div className="geral">
-          
-          <div className="containeer">
+        <h1>CADASTRO</h1>
+        <div className="signup-forms">
+          <TextField
+            type="text"
+            id="outlined-basic"
+            label="Nome de Usuario ..."
+            variant="outlined"
+            defaultValue={nameUseState}
+            onChange={(e) => {
+              setNameUseState(e.target.value);
+            }}
+          />
 
-            <div className="cabeçario">
-              <h2>Fazer Cadastro</h2>
-            </div>
+          <TextField
+            type="password"
+            id="outlined-basic"
+            label="Digite sua senha ..."
+            variant="outlined"
+            defaultValue={passwordUseState}
+            onChange={(e) => {
+              setPasswordUseState(e.target.value);
+            }}
+          />
 
-            <form id="form" className="form" action="file:///home/caiohps/eng-projeto/react_grafos/src/pages/teste..txt " method="POST" >
-              <div className="form-control">
-                <label for="username">Nome de usuário</label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Digite seu nome de usuário..."
-                />
-                <i className="fas fa-exclamation-circle"></i>
-                <i className="fas fa-check-circle"></i>
-                <small>Mensagem de erro</small>
-              </div>
+          <Button
+            onClick={() => {
+              setCreation(true);
+            }}
+            variant="outlined"
+          >
+            CADASTRAR
+          </Button>
 
-              <div className="form-control">
-                <label for="password">Senha</label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Digite sua senha..."
-                />
-                <i className="fas fa-exclamation-circle"></i>
-                <i className="fas fa-check-circle"></i>
-                <small>Mensagem de erro</small>
-              </div>
-
-              <button type="submit">Cadastrar</button>
-            </form>
-          </div>
-
-          <script
-            src="https://kit.fontawesome.com/f9e19193d6.js"
-            crossorigin="anonymous"
-          ></script>
-
-          <script src="./scripts.js"></script>
+          {userInfo}
         </div>
       </Container>
     </>

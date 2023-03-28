@@ -2,17 +2,14 @@ import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
 
 const AllRoutes = () => {
    return(
        <BrowserRouter>
         <Routes>
           <Route element={<Home />}  path="/" exact />
-          <Route element={<About />}  path="/about" />
           <Route element={<Login />}  path="/login" />
           <Route element={<Signup />}  path="/signup" />
         </Routes>
