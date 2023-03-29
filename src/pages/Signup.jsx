@@ -4,11 +4,13 @@ import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import "../css/Signup.css";
+import api from "../services/api";
+import { useEffect } from "react";
 
 const Signup = () => {
+
   const [userCreated, setCreation] = useState(false);
   const [nameUseState, setNameUseState] = useState("");
-  const [emailUseState, setEmailUseState] = useState("");
   const [passwordUseState, setPasswordUseState] = useState("");
 
   let userInfo;
@@ -18,7 +20,6 @@ const Signup = () => {
       <>
         <h6>User created</h6>
         <p>Name: {nameUseState}</p>
-        <p>E-mail: {emailUseState}</p>
         <p>Password: {passwordUseState}</p>
       </>
     );
@@ -28,6 +29,22 @@ const Signup = () => {
         <p>User not created</p>
       </>
     );
+  }
+
+  const handleSubmit = () => {
+
+    setCreation(true)
+    
+    api
+      .post("/api/users/signup",{
+          userName: nameUseState,
+          password: passwordUseState
+      })
+      .then((response) => setUser(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+
   }
 
   return (
@@ -60,7 +77,7 @@ const Signup = () => {
 
           <Button
             onClick={() => {
-              setCreation(true);
+              handleSubmit()
             }}
             variant="outlined"
           >

@@ -4,18 +4,21 @@ import "../css/Login.css";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useState } from "react";
+import { allStates } from "../main";
 
 const Login = () => {
   const [userCreated, setCreation] = useState(false);
   const [nameUseState, setNameUseState] = useState("");
-  const [emailUseState, setEmailUseState] = useState("");
   const [passwordUseState, setPasswordUseState] = useState("");
 
-  return (
-    <>
-      <Header />
-      <Container>
-        <h1>LOGIN</h1>
+  const userState = allStates((state) => state.userLogged);
+  const setUserState = allStates((state) => state.setUserState);
+
+  let formulario
+
+  if (userState === false) {
+    formulario = (
+      <>
         <div className="signup-forms">
           <TextField
             type="text"
@@ -41,13 +44,42 @@ const Login = () => {
 
           <Button
             onClick={() => {
-              setCreation(true);
+              handleSubmit();
             }}
             variant="outlined"
           >
             Entrar
           </Button>
         </div>
+      </>
+    );
+  } else {
+    formulario = (
+      <>
+        <p>Você está logado.</p>
+      </>
+    );
+  }
+
+  const handleSubmit = () => {
+    setUserState();
+    api
+      .post("/api/users/login", {
+        userName: nameUseState,
+        password: passwordUseState,
+      })
+      .then((response) => setUser(response.data) )
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
+
+  return (
+    <>
+      <Header />
+      <Container>
+        <h1>LOGIN</h1>
+        {formulario}
       </Container>
     </>
   );
