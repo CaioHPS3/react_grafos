@@ -5,9 +5,12 @@ import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { allStates } from "../main";
+import api from "../services/api"
+import Helmet from 'react-helmet'
 
 const Login = () => {
   const [userCreated, setCreation] = useState(false);
+  const [user, setUser] = useState();
   const [nameUseState, setNameUseState] = useState("");
   const [passwordUseState, setPasswordUseState] = useState("");
 
@@ -73,9 +76,12 @@ const Login = () => {
         console.error("ops! ocorreu um erro" + err);
       });
   };
+console.log(user)
+console.log(user.id)
 
   return (
     <>
+      <Helmet title="Login" />
       <Header />
       <Container>
         <h1>LOGIN</h1>

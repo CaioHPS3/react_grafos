@@ -2,6 +2,7 @@ import Header from "../layout/Header";
 import Container from "../layout/Container";
 import api from "../services/api";
 import { useEffect, useState } from "react";
+import Helmet from 'react-helmet'
 
 const Home = () => {
   const [notes, setNotes] = useState([]);
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <>
+      <Helmet title="Home" />
       <Header />
       <Container>
         {notes.map((elements, index) => (

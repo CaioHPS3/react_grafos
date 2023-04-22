@@ -6,6 +6,7 @@ import { useState } from "react";
 import "../css/Signup.css";
 import api from "../services/api";
 import { useEffect } from "react";
+import Helmet from 'react-helmet'
 
 const Signup = () => {
 
@@ -49,6 +50,7 @@ const Signup = () => {
 
   return (
     <>
+      <Helmet title="Singnup" />
       <Header />
       <Container>
         <h1>CADASTRO</h1>
