@@ -23,6 +23,7 @@ const Login = () => {
     formulario = (
       <>
         <div className="signup-forms">
+        <h1>LOGIN</h1>
           <TextField
             type="text"
             id="outlined-basic"
@@ -76,15 +77,15 @@ const Login = () => {
         console.error("ops! ocorreu um erro" + err);
       });
   };
+
 console.log(user)
-console.log(user.id)
+
 
   return (
     <>
       <Helmet title="Login" />
       <Header />
       <Container>
-        <h1>LOGIN</h1>
         {formulario}
       </Container>
     </>

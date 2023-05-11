@@ -53,8 +53,8 @@ const Signup = () => {
       <Helmet title="Singnup" />
       <Header />
       <Container>
-        <h1>CADASTRO</h1>
         <div className="signup-forms">
+        <h1>CADASTRO</h1>
           <TextField
             type="text"
             id="outlined-basic"
