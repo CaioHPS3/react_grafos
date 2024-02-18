@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [notes, setNotes] = useState([]);
+  
 
   useEffect(() => {
     api
